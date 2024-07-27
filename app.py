@@ -11,7 +11,8 @@ def index():
 @app.route('/add', methods=['POST'])
 def add():
     task = request.form.get('task')
-    tasks.append(task)
+    if task:  # Vérifiez si une tâche est fournie
+        tasks.append(task)
     return redirect(url_for('index'))
 
 @app.route('/delete/<int:task_id>')
