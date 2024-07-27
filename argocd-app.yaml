@@ -2,12 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: task-manager
+  namespace: argocd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/Madisoilihi/lab2.git'
-    targetRevision: HEAD
-    path: .
+    targetRevision: main
+    path: manifests
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
